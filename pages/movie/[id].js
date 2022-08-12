@@ -13,11 +13,11 @@ function Movie({ result }) {
   const BASE_URL = 'https://image.tmdb.org/t/p/original/'
   const [showPlayer, setShowPlayer] = useState(false)
 
-  useEffect(() => {
-    if (!session) {
-      router.push('/')
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!session) {
+  //     router.push('/')
+  //   }
+  // }, [])
 
   const index = result.videos.results.findIndex(
     (element) => element.type === 'Trailer'
@@ -30,9 +30,9 @@ function Movie({ result }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      {!session ? (
+      {/* {!session ? (
         <Hero></Hero>
-      ) : (
+      ) : ( */}
         <section className="relative z-50">
           <div className="relative min-h-[calc(100vh-72px)]">
             <Image
@@ -45,7 +45,7 @@ function Movie({ result }) {
               objectFit="cover"
             ></Image>
           </div>
-          <div className="absolute inset-y-28 inset-x-4 z-50 space-y-6 md:inset-y-auto md:inset-x-12 md:bottom-10">
+          <div className="absolute z-50 space-y-6 inset-y-28 inset-x-4 md:inset-y-auto md:inset-x-12 md:bottom-10">
             <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl">
               {result.title || result.original_name}
             </h1>
@@ -56,7 +56,7 @@ function Movie({ result }) {
                   src="/images/play-icon-black.svg"
                   alt="Play Icon"
                 ></img>
-                <span className="font-medium uppercase tracking-wide">
+                <span className="font-medium tracking-wide uppercase">
                   Play
                 </span>
               </button>
@@ -69,14 +69,14 @@ function Movie({ result }) {
                   className="h-6 md:h-8"
                   alt="Play Icon"
                 ></img>
-                <span className="font-medium uppercase tracking-wide">
+                <span className="font-medium tracking-wide uppercase">
                   Trailer
                 </span>
               </button>
-              <div className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-black/60">
+              <div className="flex items-center justify-center border-2 border-white rounded-full cursor-pointer h-11 w-11 bg-black/60">
                 <PlusIcon className="h-6"></PlusIcon>
               </div>
-              <div className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-black/60">
+              <div className="flex items-center justify-center border-2 border-white rounded-full cursor-pointer h-11 w-11 bg-black/60">
                 <img src="/images/group-icon.svg" alt="Group Icon"></img>
               </div>
             </div>
@@ -88,7 +88,7 @@ function Movie({ result }) {
             <h4 className="max-w-4xl text-sm md:text-lg">{result.overview}</h4>
           </div>
           {showPlayer && (
-            <div className="absolute inset-0 z-50 h-full w-full bg-black opacity-50"></div>
+            <div className="absolute inset-0 z-50 w-full h-full bg-black opacity-50"></div>
           )}
           <div
             className={`absolute inset-x-[7%] top-3 overflow-hidden rounded transition duration-1000 md:inset-x-[13%] ${
@@ -116,7 +116,7 @@ function Movie({ result }) {
             </div>
           </div>
         </section>
-      )}
+      {/* )} */}
     </div>
   )
 }

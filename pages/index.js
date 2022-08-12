@@ -23,9 +23,9 @@ function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      {!session ? (
+      {/* {!session ? (
         <Hero></Hero>
-      ) : (
+      ) : ( */}
         <main className="after:bg-color relative min-h-screen after:absolute after:inset-0 after:z-[-1] after:bg-home after:bg-cover after:bg-fixed after:bg-center after:bg-no-repeat">
           <Slider></Slider>
           <Brands></Brands>
@@ -46,7 +46,7 @@ function Home({
             title="Top Rated Shows"
           ></ShowsCollection>
         </main>
-      )}
+      {/* )} */}
     </>
   )
 }
